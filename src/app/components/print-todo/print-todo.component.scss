@@ -1,0 +1,44 @@
+#todo-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.todo-wrapper {
+  margin-bottom: 20px;
+
+  mat-divider {
+    border-top-color: rgba(0, 0, 0, 0.18);
+  }
+
+  .todo-container {
+    background: #f6f6f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+
+    p {
+      width: 150px;
+    }
+
+    #date-added {
+      width: 180px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  button {
+    padding: 0px 10px;
+  }
+  .undo-button {
+    width: 85px;
+    margin-right: 7px;
+  }
+
+  .mark-as-done {
+    text-decoration: line-through;
+  }
+}

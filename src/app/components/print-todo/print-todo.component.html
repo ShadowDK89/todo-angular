@@ -1,0 +1,55 @@
+<div id="todo-title-wrapper">
+    <h2>Kvar att göra:</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Sortera efter:</mat-label>
+        <mat-select>
+            <mat-option (click)="sortList(0)">Standard sortering</mat-option>
+            <mat-option value="name" (click)="sortList(1)">Namn</mat-option>
+            <mat-option value="recently-added"(click)="sortList(2)">Senast Tillagd</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="todo-wrapper">
+    <div *ngFor="let todo of listToPrint, let i = index">
+        <mat-divider *ngIf="!todo.isFinished"></mat-divider>
+        <div *ngIf="!todo.isFinished" class="todo-container">
+            <p>{{ todo.title }}</p>
+            <div id="date-added">
+                <p>{{ todo.added.toLocaleDateString() }}</p>
+                <div>
+                    <span>{{ todo.added.getHours() < 10 ? '0' + todo.added.getHours() : todo.added.getHours()}}</span>
+                    <span>:</span>
+                    <span>{{ todo.added.getMinutes() < 10 ? '0' + todo.added.getMinutes() : todo.added.getMinutes()}}</span>
+                    <span>:</span>
+                    <span>{{ todo.added.getSeconds() < 10 ? '0' + todo.added.getSeconds() : todo.added.getSeconds()}}</span>
+                </div>
+            </div>
+            <button type="button" mat-flat-button color="primary" (click)="isDone(this.todo)">Markera som klar 
+                <span class="material-icons">check</span>
+            </button>
+        </div>
+    </div>
+</div>
+<h2>Uppgifter som är klara:</h2>
+<div class="todo-wrapper">
+    <div *ngFor="let todo of listToPrint, let i = index">
+        <mat-divider *ngIf="todo.isFinished"></mat-divider>
+        <div *ngIf="todo.isFinished" class="todo-container">
+            <p class="mark-as-done">{{ todo.title }}</p>
+            <div id="date-added" class="mark-as-done">
+                <p>{{ todo.added.toLocaleDateString() }}</p>
+                <div>
+                    <span>{{ todo.added.getHours() < 10 ? '0' + todo.added.getHours() : todo.added.getHours()}}</span>
+                    <span>:</span>
+                    <span>{{ todo.added.getMinutes() < 10 ? '0' + todo.added.getMinutes() : todo.added.getMinutes()}}</span>
+                    <span>:</span>
+                    <span>{{ todo.added.getSeconds() < 10 ? '0' + todo.added.getSeconds() : todo.added.getSeconds()}}</span>
+                </div>
+            </div>
+            <button type="button" class="undo-button" mat-flat-button color="primary" (click)="isDone(this.todo)">Ångra
+                <span class="material-icons">remove</span>
+            </button>
+            <button type="button" mat-flat-button color="primary" (click)="deleteTodo(this.todo)">X</button>
+        </div>
+    </div>
+</div>

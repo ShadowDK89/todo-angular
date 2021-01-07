@@ -1,0 +1,14 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+
+  #todo-input {
+    /* width: 70%; */
+    flex-grow: 1;
+  }
+  button {
+    margin-left: 20px;
+  }
+}

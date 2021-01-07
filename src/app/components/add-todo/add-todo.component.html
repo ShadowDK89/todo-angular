@@ -1,0 +1,7 @@
+<div>
+    <mat-form-field id="todo-input" (keyup)="addNewTodo()">
+        <input matInput type="text" placeholder="Ny Todo" #currentTodo [value]='newTodo' (change)="updateTodo(currentTodo.value)">
+    </mat-form-field>
+    <button type="button" mat-flat-button color="primary" (click)="addNewTodo()" >Lägg Till <span class="material-icons">add</span></button>
+</div>
+
